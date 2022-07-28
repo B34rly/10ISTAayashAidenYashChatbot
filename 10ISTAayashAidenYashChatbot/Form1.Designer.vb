@@ -10,6 +10,8 @@ Partial Class Form1
                 components.Dispose()
             End If
         Finally
+
+            Print("oei")
             MyBase.Dispose(disposing)
         End Try
     End Sub
