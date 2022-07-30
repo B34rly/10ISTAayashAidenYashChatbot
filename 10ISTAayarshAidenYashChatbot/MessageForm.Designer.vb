@@ -27,8 +27,12 @@ Partial Class MessageForm
         Me.MessagePanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.Spacer = New System.Windows.Forms.Label()
         Me.InputLayout = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TTS_Enabled = New System.Windows.Forms.CheckBox()
         Me.MessagePanel.SuspendLayout()
         Me.InputLayout.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'STT_and_Enter
@@ -97,11 +101,50 @@ Partial Class MessageForm
         Me.InputLayout.Size = New System.Drawing.Size(534, 90)
         Me.InputLayout.TabIndex = 4
         '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 4
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.TTS_Enabled, 3, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 12)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(534, 26)
+        Me.TableLayoutPanel1.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(357, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(48, 16)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Label1"
+        '
+        'TTS_Enabled
+        '
+        Me.TTS_Enabled.AutoSize = True
+        Me.TTS_Enabled.Checked = True
+        Me.TTS_Enabled.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.TTS_Enabled.Location = New System.Drawing.Point(426, 3)
+        Me.TTS_Enabled.Name = "TTS_Enabled"
+        Me.TTS_Enabled.Size = New System.Drawing.Size(56, 20)
+        Me.TTS_Enabled.TabIndex = 1
+        Me.TTS_Enabled.Text = "TTS"
+        Me.TTS_Enabled.UseVisualStyleBackColor = True
+        '
         'MessageForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(558, 673)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.InputLayout)
         Me.Controls.Add(Me.MessagePanel)
         Me.Name = "MessageForm"
@@ -110,6 +153,8 @@ Partial Class MessageForm
         Me.MessagePanel.ResumeLayout(False)
         Me.InputLayout.ResumeLayout(False)
         Me.InputLayout.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -118,4 +163,7 @@ Partial Class MessageForm
     Friend WithEvents InputLayout As TableLayoutPanel
     Friend WithEvents Spacer As Label
     Private WithEvents MessagePanel As FlowLayoutPanel
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TTS_Enabled As CheckBox
 End Class

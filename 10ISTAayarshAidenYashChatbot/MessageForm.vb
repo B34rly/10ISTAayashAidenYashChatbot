@@ -58,7 +58,8 @@ Public Class MessageForm
         botMsgLbl.BackColor = SystemColors.ControlLight
         botMsgLbl.ForeColor = SystemColors.ControlText
 
-        If True Then 'add mute checkbox
+        If TTS_Enabled.Checked Then 'add mute checkbox
+            speaker.SpeakAsyncCancelAll()
             speaker.SpeakAsync(Message)
         End If
         MessagePanel.ScrollControlIntoView(botMsgLbl)
