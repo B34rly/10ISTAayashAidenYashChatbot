@@ -36,10 +36,19 @@ Public Class MessageForm
         End If
     End Sub
 
-    Private Sub Send_Chatbot_Message()
+    Private Sub Chatbot_Respond(Input As String) 'put all the chatting logic in here :D
+        Dim Response = "placeholder message bro"
+        If Input.Contains("yoo now way") Then
+            Response = "whatever for now baby ily"
+        End If 'yknow actually make this something
+        Send_Chatbot_Message(Response)
+    End Sub
+
+    Private Sub Send_Chatbot_Message(Message)
         Dim botMsgLbl As New Label
+
         botMsgLbl.Parent = MessagePanel
-        botMsgLbl.Text = "aoeuaoeuaoe aoensatoehu snatoehu sntaoehurs caogheusn thaoesnut hasu"
+        botMsgLbl.Text = Message
         botMsgLbl.AutoSize = True
         botMsgLbl.Dock = DockStyle.Left
         botMsgLbl.Margin = New Padding(3, 6, 3, 6)
@@ -49,12 +58,15 @@ Public Class MessageForm
         botMsgLbl.BackColor = SystemColors.ControlLight
         botMsgLbl.ForeColor = SystemColors.ControlText
 
+        If True Then 'add mute checkbox
+            speaker.SpeakAsync(Message)
+        End If
         MessagePanel.ScrollControlIntoView(botMsgLbl)
-        InputBox.Text = ""
     End Sub
 
     Private Sub Send_Message()
         Dim userMsgLbl As New Label
+
         userMsgLbl.Parent = MessagePanel
         userMsgLbl.Text = InputBox.Text.Trim
         userMsgLbl.AutoSize = True
@@ -67,8 +79,7 @@ Public Class MessageForm
         userMsgLbl.ForeColor = SystemColors.HighlightText
 
         MessagePanel.ScrollControlIntoView(userMsgLbl)
+        Chatbot_Respond(InputBox.Text.Trim)
         InputBox.Text = ""
-
-        Send_Chatbot_Message()
     End Sub
 End Class
