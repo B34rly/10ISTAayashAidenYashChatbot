@@ -66,11 +66,11 @@ Partial Class MessageForm
         Me.MessagePanel.Controls.Add(Me.Spacer)
         Me.MessagePanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MessagePanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.MessagePanel.Location = New System.Drawing.Point(12, 12)
+        Me.MessagePanel.Location = New System.Drawing.Point(12, 38)
         Me.MessagePanel.Margin = New System.Windows.Forms.Padding(12)
         Me.MessagePanel.Name = "MessagePanel"
         Me.MessagePanel.Padding = New System.Windows.Forms.Padding(12)
-        Me.MessagePanel.Size = New System.Drawing.Size(534, 649)
+        Me.MessagePanel.Size = New System.Drawing.Size(534, 533)
         Me.MessagePanel.TabIndex = 3
         Me.MessagePanel.WrapContents = False
         '
@@ -144,9 +144,9 @@ Partial Class MessageForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(558, 673)
+        Me.Controls.Add(Me.MessagePanel)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.InputLayout)
-        Me.Controls.Add(Me.MessagePanel)
         Me.Name = "MessageForm"
         Me.Padding = New System.Windows.Forms.Padding(12)
         Me.Text = "Beribus Chatbot"
