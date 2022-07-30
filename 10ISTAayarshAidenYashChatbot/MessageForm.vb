@@ -80,7 +80,7 @@ Public Class MessageForm
         userMsgLbl.ForeColor = SystemColors.HighlightText
 
         MessagePanel.ScrollControlIntoView(userMsgLbl)
-        Chatbot_Respond(InputBox.Text.Trim)
+        Chatbot_Respond(InputBox.Text.Trim.ToLower)
         InputBox.Text = ""
     End Sub
 End Class
