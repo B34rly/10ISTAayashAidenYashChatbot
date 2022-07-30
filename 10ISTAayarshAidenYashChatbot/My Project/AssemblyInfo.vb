@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Speech Recognition Test")>
+<Assembly: AssemblyTitle("10ISTAayarshAidenYashChatbot")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("Speech Recognition Test")>
+<Assembly: AssemblyProduct("10ISTAayarshAidenYashChatbot")>
 <Assembly: AssemblyCopyright("Copyright ©  2022")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("8d5436fe-c982-4182-9b17-f5cba958fb16")>
+<Assembly: Guid("5f148bf8-97a5-480f-900a-10b2fe9c8143")>
 
 ' Version information for an assembly consists of the following four values:
 '

@@ -32,7 +32,7 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Speech_Recognition_Test.Form1
+            Me.MainForm = Global._10ISTAayarshAidenYashChatbot.Form1
         End Sub
     End Class
 End Namespace
