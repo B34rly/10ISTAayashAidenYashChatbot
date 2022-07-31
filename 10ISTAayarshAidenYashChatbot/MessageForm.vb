@@ -83,4 +83,12 @@ Public Class MessageForm
         Chatbot_Respond(InputBox.Text.Trim.ToLower)
         InputBox.Text = ""
     End Sub
+
+    Private Sub TTS_Enabled_CheckedChanged(sender As Object, e As EventArgs) Handles TTS_Enabled.CheckedChanged
+        TTS_Enabled.BackgroundImage = If(TTS_Enabled.Checked, My.Resources.speaker, My.Resources.speaker_mute)
+    End Sub
+
+    Private Sub InputBox_TextChanged(sender As Object, e As EventArgs) Handles InputBox.TextChanged
+        STT_and_Enter.BackgroundImage = If(InputBox.Text = "", My.Resources.record, My.Resources.send)
+    End Sub
 End Class
