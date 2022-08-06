@@ -1,7 +1,7 @@
 ﻿Public Class botLogic
-    Dim goodWords As New List(Of String)({"well", "good", "great", "wonderful", "alright", "not bad", "not terrible"})
-    Dim badWords As New List(Of String)({"bad", "not good", "not great", "terrible", "unwell", "not doing well"})
-    Dim isWords As New List(Of String)({"is", "it's"})
+    Dim goodWords As New List(Of String)({"well", "good", "great", "wonderful", "alright", "happy", "glad"})
+    Dim badWords As New List(Of String)({"bad", "terrible", "unwell", "sad", "unhappy", "annoyed", "disappointed"})
+    Dim isWords As New List(Of String)({"is", "it's", "'s"})
     Dim affirmativeWords As New List(Of String)({"yes", "please", "of course", "affirmative"})
     Dim refusalWords As New List(Of String)({"no", "not", "never"})
     Dim systemWords As New List(Of String)({"circulatory", "respiratory", "digestive", "skeletal", "nervous"})
@@ -11,6 +11,8 @@
     Dim purposeWords As New List(Of String)({"what does", "purpose", "job"})
     Dim howWords As New List(Of String)({"how does", "work"})
     Dim integrationWords As New List(Of String)({"other", "with"})
+
+    Dim generator As New Random()
 
     'For Each word As String In goodWords
     '         badWords.Add("not " + word)
@@ -26,21 +28,36 @@
             For Each word As String In goodWords
                 If Input.Contains(word) Then
                     goodResponse = True
-                    Response = "That's great to hear!" & vbNewLine & "My name is Beribus, what's yours?"
+                ElseIf Input.Contains(word) And Input.Contains("not") Then
+                    goodResponse = False
                 End If
             Next
             For Each word As String In badWords
                 If Input.Contains(word) Then
                     goodResponse = False
-                    Response = "I'm sorry to hear that!" & vbNewLine & "My name is Beribus, what's yours?"
+                ElseIf Input.Contains(word) And Input.Contains("not") Then
+                    goodResponse = True
                 End If
             Next
+            If goodResponse IsNot Nothing Then
+                If goodResponse Then
+                    Response = "That's great to hear!"
+                ElseIf Not goodResponse Then
+                    Response = "I'm sorry to hear that! I'll do what I can to change that!"
+                End If
+                If Input.Contains("you") Then
+                    Response = Response & vbNewLine & "I am an AI and therefore don’t have feelings, but since you asked, I’m doing great!"
+                End If
+                Response = Response & vbNewLine & "My name is Beribus, what's yours?"
+
+            End If
 
         ElseIf MessageForm.recentChatBotMessage.Contains("name is Beribus") Then
+            Dim chatterName As String = Input
             For Each word As String In isWords
-                Dim chatterName As String = Input
                 If Input.Contains(word) Then
-                    chatterName = Input.Split(word)(Input.Split(word).Length - 1)
+                    Dim wordSeparator() As String = {word}
+                    chatterName = Input.Split(wordSeparator, StringSplitOptions.None)(Input.Split(wordSeparator, StringSplitOptions.None).Length - 1).Trim()
                 End If
                 Response = chatterName & ", huh? I like that name!"
                 Response = Response & vbNewLine & "Well, " & chatterName & ", do you want to learn about the human body systems?"
@@ -48,7 +65,7 @@
         ElseIf MessageForm.recentChatBotMessage.Contains("learn about the hu") Then
             For Each word As String In refusalWords
                 If Input.Contains(word) Then
-                    Response = "Oh well, that's alright, do you want to play a game instead then?"
+                    Response = "Oh well, that's alright." & vbNewLine & "Do you want to play a game instead then?"
                 End If
             Next
             For Each word As String In affirmativeWords
@@ -82,19 +99,179 @@
                     ElseIf word = "skeletal" Then
                         Response = "The skeletal system is the backbone of the rest of the body!" & vbNewLine & "Haha, did you see what I did there?" & vbNewLine & "Well, the skeletal system INFORMATION HERE"
                     ElseIf word = "digestive" Then
-                        Response = "The digestive system is easily the crappiest of them all. No I mean literally!" & vbNewLine & "The digestive system involves INFO TIME"
+                        Response = "The digestive system is easily the crappiest of them all. No, I mean literally!" & vbNewLine & "The digestive system involves INFO TIME"
                     End If
                 End If
             Next
         ElseIf MessageForm.recentChatBotMessage.Contains("circulatory") Then
             For Each word As String In definitionWords
-
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In compositionWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In howWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In purposeWords
+                If Input.Contains(word) Then
+                    Response = "system purpose"
+                End If
+            Next
+            For Each word As String In integrationWords
+                If Input.Contains(word) Then
+                    Response = "system integration"
+                End If
+            Next
+        ElseIf MessageForm.recentChatBotMessage.Contains("respiratory") Then
+            For Each word As String In definitionWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In compositionWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In howWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In purposeWords
+                If Input.Contains(word) Then
+                    Response = "system purpose"
+                End If
+            Next
+            For Each word As String In integrationWords
+                If Input.Contains(word) Then
+                    Response = "system integration"
+                End If
+            Next
+        ElseIf MessageForm.recentChatBotMessage.Contains("skeletal") Then
+            For Each word As String In definitionWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In compositionWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In howWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In purposeWords
+                If Input.Contains(word) Then
+                    Response = "system purpose"
+                End If
+            Next
+            For Each word As String In integrationWords
+                If Input.Contains(word) Then
+                    Response = "system integration"
+                End If
+            Next
+        ElseIf MessageForm.recentChatBotMessage.Contains("digestive") Then
+            For Each word As String In definitionWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In compositionWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In howWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In purposeWords
+                If Input.Contains(word) Then
+                    Response = "system purpose"
+                End If
+            Next
+            For Each word As String In integrationWords
+                If Input.Contains(word) Then
+                    Response = "system integration"
+                End If
+            Next
+        ElseIf MessageForm.recentChatBotMessage.Contains("nervous") Then
+            For Each word As String In definitionWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In compositionWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In howWords
+                If Input.Contains(word) Then
+                    Response = "system definition"
+                End If
+            Next
+            For Each word As String In purposeWords
+                If Input.Contains(word) Then
+                    Response = "system purpose"
+                End If
+            Next
+            For Each word As String In integrationWords
+                If Input.Contains(word) Then
+                    Response = "system integration"
+                End If
             Next
         End If
+        For Each system As String In systemWords
+            If Input.Contains(system) Then
+                For Each word As String In definitionWords
+                    If Input.Contains(word) Then
+                        Response = system & "system definition"
+                    End If
+                Next
+                For Each word As String In compositionWords
+                    If Input.Contains(word) Then
+                        Response = system & "system definition"
+                    End If
+                Next
+                For Each word As String In howWords
+                    If Input.Contains(word) Then
+                        Response = system & "system definition"
+                    End If
+                Next
+                For Each word As String In purposeWords
+                    If Input.Contains(word) Then
+                        Response = system & "system purpose"
+                    End If
+                Next
+                For Each word As String In integrationWords
+                    If Input.Contains(word) Then
+                        Response = system & "system integration"
+                    End If
+                Next
+            End If
+        Next
 
-        If Input.Contains("yoo now way") Then
+        If Input.Contains("joke") Then
             Response = "whatever for now baby ily"
-        End If 'yknow actually make this something
+        ElseIf Input.Contains("game") Then
+            Response = "Do you want to play a game?"
+        ElseIf Input.Contains("fact") Then
+            Response = "You want to hear a fun fact?"
+        End If
+        'yknow actually make this something
 
         Return Response
     End Function
