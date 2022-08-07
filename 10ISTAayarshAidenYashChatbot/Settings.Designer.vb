@@ -22,48 +22,36 @@ Partial Class Settings
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
-        Me.FlowLayoutPanel1.SuspendLayout()
+        Me.SettingsTable = New System.Windows.Forms.TableLayoutPanel()
         Me.SuspendLayout()
         '
-        'FlowLayoutPanel1
+        'SettingsTable
         '
-        Me.FlowLayoutPanel1.Controls.Add(Me.CheckedListBox1)
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(12)
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(800, 450)
-        Me.FlowLayoutPanel1.TabIndex = 0
-        '
-        'CheckedListBox1
-        '
-        Me.CheckedListBox1.FormattingEnabled = True
-        Me.CheckedListBox1.Items.AddRange(New Object() {"Chatbot Text To Speech", "Message Notifications", "Music"})
-        Me.CheckedListBox1.Location = New System.Drawing.Point(15, 15)
-        Me.CheckedListBox1.MultiColumn = True
-        Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.CheckedListBox1.Size = New System.Drawing.Size(479, 280)
-        Me.CheckedListBox1.Sorted = True
-        Me.CheckedListBox1.TabIndex = 0
-        Me.CheckedListBox1.UseTabStops = False
+        Me.SettingsTable.AutoSize = True
+        Me.SettingsTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.SettingsTable.ColumnCount = 2
+        Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.0!))
+        Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.SettingsTable.Dock = System.Windows.Forms.DockStyle.Top
+        Me.SettingsTable.Location = New System.Drawing.Point(0, 0)
+        Me.SettingsTable.Name = "SettingsTable"
+        Me.SettingsTable.Padding = New System.Windows.Forms.Padding(12)
+        Me.SettingsTable.RowCount = 1
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.SettingsTable.Size = New System.Drawing.Size(675, 24)
+        Me.SettingsTable.TabIndex = 1
         '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.FlowLayoutPanel1)
+        Me.ClientSize = New System.Drawing.Size(675, 259)
+        Me.Controls.Add(Me.SettingsTable)
         Me.Name = "Settings"
-        Me.Text = "Settings1"
-        Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.Text = "Settings"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents CheckedListBox1 As CheckedListBox
+    Private WithEvents SettingsTable As TableLayoutPanel
 End Class

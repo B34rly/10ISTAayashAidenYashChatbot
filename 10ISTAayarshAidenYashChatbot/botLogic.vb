@@ -12,8 +12,6 @@
     Dim howWords As New List(Of String)({"how does", "work"})
     Dim integrationWords As New List(Of String)({"other", "with"})
 
-    Dim generator As New Random()
-
     'For Each word As String In goodWords
     '         badWords.Add("not " + word)
     'Next
@@ -73,7 +71,7 @@
                     Response = "Great!" & vbNewLine & "Which system do you want to hear about first? The nervous, skeletal, digestive, circulatory or respiratory system?"
                 End If
             Next
-        ElseIf MessageForm.recentChatBotMessage.Contains("play a game") Then
+        ElseIf MessageForm.recentChatBotMessage.Contains("play a game") Or MessageForm.recentChatBotMessage.Contains("play again") Then
             For Each word As String In refusalWords
                 If Input.Contains(word) Then
                     Response = "Well, let's continue to learn about the human body systems then!"
@@ -81,7 +79,7 @@
             Next
             For Each word As String In affirmativeWords
                 If Input.Contains(word) Then
-                    Response = "Great!"
+                    Response = "Great! Let's play tic tac toe!" & vbNewLine & "You move first!"
                     'do some gaming shit here idk i don't want it all in one file because it's so annoying to use but it seems like i'll have to
                     Return Response
                     Exit Function
