@@ -231,6 +231,28 @@
                     Response = "system integration"
                 End If
             Next
+	ElseIf MessageForm.recentChatBotMessage.Contains("fun fact") Then
+		For Each word as String in affirmativeWords
+			If Input.Contains(word) Then
+				Response = "Did you know that the brain is the only organ to name itself?"
+			End If
+		Next
+		For Each word as String in refusalWords
+			If Input.Contains(word) Then
+				Response = "Well, your loss. I've got tons more for when you change your mind!" & vbNewLine & "For now, give me a question about our 5 body systems!"
+			End If
+		Next 
+	ElseIf MessageForm.MessageForm.recentChatBotMessage.Contains("a joke") Then
+		For Each word as String in affirmativeWords
+			If Input.Contains(word) Then
+				Response = "Ok! Here goes!" & vbNewLine & "put a joke here lol haha"
+			End If
+		Next
+		For Each word as String in refusalWords
+			If Input.Contains(word) Then
+				Response = "Oh, alright then." & "Hit me with a question about some more body systems!"
+			 End If
+		Next 
         End If
         For Each system As String In systemWords
             If Input.Contains(system) Then
@@ -263,7 +285,7 @@
         Next
 
         If Input.Contains("joke") Then
-            Response = "whatever for now baby ily"
+            Response = "Do you want to hear a joke? No guarentees it's good though!"
         ElseIf Input.Contains("game") Then
             Response = "Do you want to play a game?"
         ElseIf Input.Contains("fact") Then
