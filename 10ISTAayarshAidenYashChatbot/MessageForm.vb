@@ -8,7 +8,7 @@ Public Class MessageForm
 
     Dim goodWords As New List(Of String)({"well", "good", "great", "wonderful", "alright"})
     Dim badWords As New List(Of String)({"bad", "terrible", "unwell"})
-    Dim isWords As New List(Of String)({"is", "it's"})
+    Dim isWords As New List(Of String)({"is", "it's", "'s"})
     Dim affirmativeWords As New List(Of String)({"yes", "please", "of course", "affirmative"})
     Dim refusalWords As New List(Of String)({"no", "not", "never"})
     Dim systemWords As New List(Of String)({"circulatory", "respiratory", "digestive", "skeletal", "nervous"})
@@ -69,7 +69,9 @@ Public Class MessageForm
             For Each word As String In isWords
                 Dim chatterName As String = Input
                 If Input.Contains(word) Then
-                    chatterName = Input.Split(word)(Input.Split(word).Length - 1)
+                    Dim wordSeparator() As String = {word}
+
+                    chatterName = Input.Split(wordSeparator, StringSplitOptions.None)(Input.Split(wordSeparator, StringSplitOptions.None).Length - 1).Trim()
                 End If
                 Response = chatterName & ", huh? I like that name!"
                 Response = Response & vbNewLine & "Well, " & chatterName & ", do you want to learn about the human body systems?"
