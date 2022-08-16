@@ -1,8 +1,8 @@
 ﻿Public Class botLogic
-    Dim goodWords As New List(Of String)({"well", "good", "great", "wonderful", "alright", "happy", "glad"})
-    Dim badWords As New List(Of String)({"bad", "terrible", "unwell", "sad", "unhappy", "annoyed", "disappointed"})
+    Dim goodWords As New List(Of String)({"well", "good", "great", "wonderful", "alright", "ok", "okay", "alright", "happy", "glad", "excellent", "exceptional", "marvelous", "positive", "superb", "wonderful"})
+    Dim badWords As New List(Of String)({"bad", "terrible", "unwell", "sad", "unhappy", "annoyed", "disappointed", "awful", "depressed", "distressed"})
     Dim isWords As New List(Of String)({"is", "it's", "'s"})
-    Dim affirmativeWords As New List(Of String)({"yes", "please", "of course", "affirmative"})
+    Dim affirmativeWords As New List(Of String)({"yes", "please", "of course", "affirmative", "why not", "okay", "sure", "yep", "all right", "gladly", "ok"})
     Dim refusalWords As New List(Of String)({"no", "not", "never"})
     Dim systemWords As New List(Of String)({"circulatory", "respiratory", "digestive", "skeletal", "nervous"})
 
@@ -89,22 +89,22 @@
             For Each word As String In systemWords
                 If Input.Contains(word) Then
                     If word = "circulatory" Then
-                        Response = "Oh the circulatory system, I love this one!" & vbNewLine & "actual information"
+                        Response = "Oh the circulatory system, I love this one!" & vbNewLine & "The circulatory system, or cardiovascular system, is responsible for delivering oxygen-rich blood all over your body. The circulatory system pumps blood from the heart to the lungs to get oxygen. The heart then sends oxygenated blood through arteries to the rest of the body. The veins carry oxygen-poor blood back to the heart to start the circulation process over."
                     ElseIf word = "respiratory" Then
-                        Response = "The respiratory system's really important!" & vbNewLine & "info part 2"
+                        Response = "The respiratory system's really important!" & vbNewLine & "The circulatory system, or cardiovascular system, is responsible for delivering oxygen-rich blood all over your body. The circulatory system pumps blood from the heart to the lungs to get oxygen. The heart then sends oxygenated blood through arteries to the rest of the body. The veins carry oxygen-poor blood back to the heart to start the circulation process over."
                     ElseIf word = "nervous" Then
-                        Response = "This one is my favourite, it's really technical!" & vbNewLine & "Oh, did you know the brain, and by extension the nervous system, is the only part of the body to have named itself?" & vbNewLine & "That's really cool, isn't it?" & "As you may have guessed, the nervous system is INFORMATION HERE"
+                        Response = "This one is my favourite, it's really technical!" & vbNewLine & "Oh, did you know the brain, and by extension the nervous system, is the only part of the body to have named itself?" & vbNewLine & "That's really cool, isn't it?" & "As you may have guessed, the nervous system is the organised network of nerve tissue in the body, including the brain. The nervous system helps in the communication of every single operation, organ and system with the brain, by delivering electrical signals through nerves to the brain, which the brain interprets as messages. "
                     ElseIf word = "skeletal" Then
-                        Response = "The skeletal system is the backbone of the rest of the body!" & vbNewLine & "Haha, did you see what I did there?" & vbNewLine & "Well, the skeletal system INFORMATION HERE"
+                        Response = "The skeletal system is the backbone of the rest of the body!" & vbNewLine & "Haha, did you see what I did there?" & vbNewLine & "Well, the skeletal system works as a support structure for your body. It gives the body its shape, allows movement, makes blood cells, provides protection for organs and stores minerals. The skeletal system is also called the musculoskeletal system."
                     ElseIf word = "digestive" Then
-                        Response = "The digestive system is easily the crappiest of them all. No, I mean literally!" & vbNewLine & "The digestive system involves INFO TIME"
+                        Response = "The digestive system is easily the crappiest of them all. No, I mean literally!" & vbNewLine & "The digestive system involves digesting the things we consume, and eventually, getting rid of it as feces. The digestive system converts the foods we eat into their simplest forms, like glucose (sugars), amino acids (that make up protein) or fatty acids (that make up fats). The broken-down food is then absorbed into the body from the small intestine and the nutrients are carried to each cell in the body."
                     End If
                 End If
             Next
         ElseIf MessageForm.recentChatBotMessage.Contains("circulatory") Then
             For Each word As String In definitionWords
                 If Input.Contains(word) Then
-                    Response = "system definition"
+                    Response = "The circulatory system, or cardiovascular system, is responsible for delivering oxygen-rich blood all over your body. The circulatory system pumps blood from the heart to the lungs to get oxygen. The heart then sends oxygenated blood through arteries to the rest of the body. The veins carry oxygen-poor blood back to the heart to start the circulation process over."
                 End If
             Next
             For Each word As String In compositionWords
@@ -130,7 +130,7 @@
         ElseIf MessageForm.recentChatBotMessage.Contains("respiratory") Then
             For Each word As String In definitionWords
                 If Input.Contains(word) Then
-                    Response = "system definition"
+                    Response = "The respiratory system is the network of organs and tissues that help you breathe. It includes your airways, lungs and blood vessels. The muscles that power your lungs are also part of the respiratory system. These parts work together to move oxygen throughout the body and clean out waste gases like carbon dioxide."
                 End If
             Next
             For Each word As String In compositionWords
@@ -156,7 +156,7 @@
         ElseIf MessageForm.recentChatBotMessage.Contains("skeletal") Then
             For Each word As String In definitionWords
                 If Input.Contains(word) Then
-                    Response = "system definition"
+                    Response = "The skeletal system works as a support structure for your body. It gives the body its shape, allows movement, makes blood cells, provides protection for organs and stores minerals. The skeletal system is also called the musculoskeletal system."
                 End If
             Next
             For Each word As String In compositionWords
@@ -182,7 +182,7 @@
         ElseIf MessageForm.recentChatBotMessage.Contains("digestive") Then
             For Each word As String In definitionWords
                 If Input.Contains(word) Then
-                    Response = "system definition"
+                    Response = "The digestive system converts the foods we eat into their simplest forms, like glucose (sugars), amino acids (that make up protein) or fatty acids (that make up fats). The broken-down food is then absorbed into the body from the small intestine and the nutrients are carried to each cell in the body."
                 End If
             Next
             For Each word As String In compositionWords
@@ -208,7 +208,7 @@
         ElseIf MessageForm.recentChatBotMessage.Contains("nervous") Then
             For Each word As String In definitionWords
                 If Input.Contains(word) Then
-                    Response = "system definition"
+                    Response = "The nervous system is the organised network of nerve tissue in the body. The nervous system helps in the communication of every single operation, organ and system with the brain, by delivering electrical signals through nerves to the brain, which the brain interprets as messages. "
                 End If
             Next
             For Each word As String In compositionWords
