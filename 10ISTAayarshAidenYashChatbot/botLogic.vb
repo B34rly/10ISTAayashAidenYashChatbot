@@ -12,6 +12,40 @@
     Dim howWords As New List(Of String)({"how does", "work"})
     Dim integrationWords As New List(Of String)({"other", "with"})
 
+    Dim respiratoryInfo As New Dictionary(Of String, String) From {
+        {"definition", "def"},
+        {"composition", "comp"},
+        {"purpose", "oe"},
+        {"how", "ho"},
+        {"integration", "oe"}}
+    Dim circulatoryInfo As New Dictionary(Of String, String) From {
+        {"definition", "def"},
+        {"composition", "comp"},
+        {"purpose", "oe"},
+        {"how", "ho"},
+        {"integration", "oe"}}
+    Dim digestiveInfo As New Dictionary(Of String, String) From {
+        {"definition", "def"},
+        {"composition", "comp"},
+        {"purpose", "oe"},
+        {"how", "ho"},
+        {"integration", "oe"}}
+    Dim nervousInfo As New Dictionary(Of String, String) From {
+        {"definition", "def"},
+        {"composition", "comp"},
+        {"purpose", "oe"},
+        {"how", "ho"},
+        {"integration", "oe"}}
+    Dim skeletalInfo As New Dictionary(Of String, String) From {
+        {"definition", "def"},
+        {"composition", "comp"},
+        {"purpose", "oe"},
+        {"how", "ho"},
+        {"integration", "oe"}}
+
+    Dim infoDictionary As New Dictionary(Of String, Dictionary(Of String, String)) From {{"respiratory", respiratoryInfo}, {"circulatory", circulatoryInfo}, {"digestive", digestiveInfo}, {"nervous", nervousInfo}, {"skeletal", skeletalInfo}}
+
+
     'For Each word As String In goodWords
     '         badWords.Add("not " + word)
     'Next
@@ -91,7 +125,7 @@
                     If word = "circulatory" Then
                         Response = "Oh the circulatory system, I love this one!" & vbNewLine & "The circulatory system, or cardiovascular system, is responsible for delivering oxygen-rich blood all over your body. The circulatory system pumps blood from the heart to the lungs to get oxygen. The heart then sends oxygenated blood through arteries to the rest of the body. The veins carry oxygen-poor blood back to the heart to start the circulation process over."
                     ElseIf word = "respiratory" Then
-                        Response = "The respiratory system's really important!" & vbNewLine & "The respiratory system is the network of organs and tissues that help you breathe. It includes your airways, lungs and blood vessels. The muscles that power your lungs are also part of the respiratory system. These parts work together to move oxygen throughout the body and clean out waste gases like carbon dioxide."
+                        Response = "The respiratory system's really important!" & vbNewLine & infoDictionary("respiratory")("definition")
                     ElseIf word = "nervous" Then
                         Response = "This one is my favourite, it's really technical!" & vbNewLine & "Oh, did you know the brain, and by extension the nervous system, is the only part of the body to have named itself?" & vbNewLine & "That's really cool, isn't it?" & "As you may have guessed, the nervous system is the organised network of nerve tissue in the body, including the brain. The nervous system helps in the communication of every single operation, organ and system with the brain, by delivering electrical signals through nerves to the brain, which the brain interprets as messages. "
                     ElseIf word = "skeletal" Then
@@ -131,7 +165,7 @@
         ElseIf MessageForm.recentChatBotMessage.Contains("respiratory") Then
             For Each word As String In definitionWords
                 If Input.Contains(word) Then
-                    Response = "The respiratory system is the network of organs and tissues that help you breathe. It includes your airways, lungs and blood vessels. The muscles that power your lungs are also part of the respiratory system. These parts work together to move oxygen throughout the body and clean out waste gases like carbon dioxide."
+                    Response = infoDictionary("respiratory")("definition")
                 End If
             Next
             For Each word As String In compositionWords
@@ -259,41 +293,27 @@
             If Input.Contains(system) Then
                 For Each word As String In definitionWords
                     If Input.Contains(word) Then
-                        If system = "respiratory" Then
-                            Response = "The respiratory system is the network of organs and tissues that help you breathe. It includes your airways, lungs and blood vessels. The muscles that power your lungs are also part of the respiratory system. These parts work together to move oxygen throughout the body and clean out waste gases like carbon dioxide."
-                        End If
-                        If system = "circulatory" Then
-                            Response = "The circulatory system, or cardiovascular system, is responsible for delivering oxygen-rich blood all over your body. The circulatory system pumps blood from the heart to the lungs to get oxygen. The heart then sends oxygenated blood through arteries to the rest of the body. The veins carry oxygen-poor blood back to the heart to start the circulation process over."
-                        End If
-                        If system = "nervous" Then
-                            Response = "The nervous system is the organised network of nerve tissue in the body. The nervous system helps in the communication of every single operation, organ and system with the brain, by delivering electrical signals through nerves to the brain, which the brain interprets as messages."
-                        End If
-                        If system = "skeletal" Then
-                            Response = "The skeletal system works as a support structure for your body. It gives the body its shape, allows movement, makes blood cells, provides protection for organs and stores minerals. The skeletal system is also called the musculoskeletal system."
-                        End If
-                        If system = "digestive" Then
-                            Response = " The digestive system converts the foods we eat into their simplest forms, like glucose (sugars), amino acids (that make up protein) or fatty acids (that make up fats). The broken-down food is then absorbed into the body from the small intestine and the nutrients are carried to each cell in the body."
-                        End If
+                        Response = infoDictionary(system)("definition")
                     End If
                 Next
                 For Each word As String In compositionWords
                     If Input.Contains(word) Then
-                        Response = system & "system definition"
+                        Response = infoDictionary(system)("composition")
                     End If
                 Next
                 For Each word As String In howWords
                     If Input.Contains(word) Then
-                        Response = system & "system definition"
+                        Response = infoDictionary(system)("how")
                     End If
                 Next
                 For Each word As String In purposeWords
                     If Input.Contains(word) Then
-                        Response = system & "system purpose"
+                        Response = infoDictionary(system)("purpose")
                     End If
                 Next
                 For Each word As String In integrationWords
                     If Input.Contains(word) Then
-                        Response = system & "system integration"
+                        Response = infoDictionary(system)("integration")
                     End If
                 Next
             End If
@@ -306,8 +326,6 @@
         ElseIf Input.Contains("fact") Then
             Response = "You want to hear a fun fact?"
         End If
-        'yknow actually make this something
-
         Return Response
     End Function
 End Class

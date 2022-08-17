@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property Bot_Text_to_Speech() As Boolean
             Get
                 Return CType(Me("Bot_Text_to_Speech"),Boolean)
@@ -80,13 +80,25 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property Notification_Mute() As Boolean
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Send_Notifications() As Boolean
             Get
-                Return CType(Me("Notification_Mute"),Boolean)
+                Return CType(Me("Send_Notifications"),Boolean)
             End Get
             Set
-                Me("Notification_Mute") = value
+                Me("Send_Notifications") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Notification_Sound() As Boolean
+            Get
+                Return CType(Me("Notification_Sound"),Boolean)
+            End Get
+            Set
+                Me("Notification_Sound") = value
             End Set
         End Property
     End Class

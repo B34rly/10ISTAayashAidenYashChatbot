@@ -27,6 +27,15 @@ Public Class MessageForm
         Send_Chatbot_Message("Hey! How are you?")
     End Sub
 
+    Private Sub MessageForm_Resize(sender As Object, e As EventArgs) Handles MyBase.ResizeEnd
+        For Each child As Object In MessagePanel.Controls
+            If child.Name IsNot "Spacer" Then
+                child.MaximumSize = New Size(MessagePanel.Size.Width / 3 * 2, 0)
+            End If
+        Next
+        Spacer.Size = New Size(MessagePanel.Size.Width - MessagePanel.Margin.Size.Width, 0)
+    End Sub
+
     Private Sub recognized_completed() Handles recogniser.RecognizeCompleted
         recognizing = False
         Console.WriteLine("complete")
@@ -202,10 +211,12 @@ Public Class MessageForm
         If Message.Contains("play tic tac toe") Then
             Play_TicTacToe()
         End If
-        If My.Settings.Item("Notification_Mute") Then
+        If My.Settings.Item("Notification_Sound") Then
             My.Computer.Audio.PlaySystemSound(System.Media.SystemSounds.Exclamation)
         End If
-        NotifyIcon1.ShowBalloonTip(2000, "Beribus Chatbot", Message, ToolTipIcon.None)
+        If My.Settings.Item("Send_Notifications") Then
+            NotifyIcon1.ShowBalloonTip(2000, "Beribus Chatbot", Message, ToolTipIcon.None)
+        End If
     End Sub
 
     Private Sub Send_Message()

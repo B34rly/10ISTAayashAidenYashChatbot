@@ -1,5 +1,6 @@
 ﻿Public Class Settings
-    Dim settings As New List(Of String)({"Bot_Text_to_Speech", "Music_Mute", "Notification_Mute"})
+    Dim settings As New List(Of String)({"Bot_Text_to_Speech", "Music_Mute", "Send_Notifications", "Notification_Sound"})
+
     Dim checkboxes As New List(Of CheckBox)
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
