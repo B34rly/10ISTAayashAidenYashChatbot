@@ -1,4 +1,6 @@
 ﻿Public Class botLogic
+    Dim generator As New Random()
+
     Dim goodWords As New List(Of String)({"well", "good", "great", "wonderful", "alright", "ok", "okay", "alright", "happy", "glad", "excellent", "exceptional", "marvelous", "positive", "superb", "wonderful"})
     Dim badWords As New List(Of String)({"bad", "terrible", "unwell", "sad", "unhappy", "annoyed", "disappointed", "awful", "depressed", "distressed"})
     Dim isWords As New List(Of String)({"is", "it's", "'s"})
@@ -11,6 +13,10 @@
     Dim purposeWords As New List(Of String)({"what does", "purpose", "job"})
     Dim howWords As New List(Of String)({"how does", "work"})
     Dim integrationWords As New List(Of String)({"other", "with"})
+
+    Dim jokes As New List(Of String)({"OO", "oo"})
+    Dim funFacts As New List(Of String)({"aa", "eau"})
+    Dim errorMessages As New List(Of String)({"Sorry, I didn't get that.", "Sorry, I don't have an answer in my database.", "I have no idea how to respond to that. I'll get my programmers to tecah me soon!", "Pardon?", "Sorry?", "This piece of artificial intelligence is not artificially intelligent enough to be able to respond to that.", "Sorry, my programmers didn't teach me how to answer that"})
 
     Dim respiratoryInfo As New Dictionary(Of String, String) From {
         {"definition", "def"},
@@ -54,7 +60,7 @@
     'Next
 
     Public Function Chatbot_Respond(Input As String) As String 'put all the chatting logic in here :D
-        Dim Response = "Sorry, I didn't get that"
+        Dim Response = errorMessages(generator.Next(0, errorMessages.Count))
         If MessageForm.recentChatBotMessage.Contains("How are you") Then
             Dim goodResponse
             For Each word As String In goodWords
@@ -269,7 +275,7 @@
         ElseIf MessageForm.recentChatBotMessage.Contains("fun fact") Then
             For Each word As String In affirmativeWords
                 If Input.Contains(word) Then
-                    Response = "Did you know that the brain is the only organ to name itself?"
+                    Response = funFacts(generator.Next(0, funFacts.Count))
                 End If
             Next
             For Each word As String In refusalWords
@@ -277,10 +283,10 @@
                     Response = "Well, your loss. I've got tons more for when you change your mind!" & vbNewLine & "For now, give me a question about our 5 body systems!"
                 End If
             Next
-        ElseIf MessageForm.recentChatBotMessage.Contains("a joke") Then
+        ElseIf MessageForm.recentChatBotMessage.Contains("joke") Then
             For Each word As String In affirmativeWords
                 If Input.Contains(word) Then
-                    Response = "Ok! Here goes!" & vbNewLine & "put a joke here lol haha"
+                    Response = "Ok! Here goes!" & vbNewLine & jokes(generator.Next(0, jokes.Count))
                 End If
             Next
             For Each word As String In refusalWords
