@@ -35,7 +35,7 @@ Partial Class Settings
         Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.0!))
         Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.SettingsTable.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SettingsTable.Location = New System.Drawing.Point(15, 60)
+        Me.SettingsTable.Location = New System.Drawing.Point(15, 53)
         Me.SettingsTable.Margin = New System.Windows.Forms.Padding(3, 15, 3, 3)
         Me.SettingsTable.Name = "SettingsTable"
         Me.SettingsTable.Padding = New System.Windows.Forms.Padding(12)
@@ -53,7 +53,7 @@ Partial Class Settings
         Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(3, 0, 3, 15)
         Me.SettingsLabel.Name = "SettingsLabel"
         Me.SettingsLabel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 6)
-        Me.SettingsLabel.Size = New System.Drawing.Size(147, 51)
+        Me.SettingsLabel.Size = New System.Drawing.Size(124, 44)
         Me.SettingsLabel.TabIndex = 0
         Me.SettingsLabel.Text = "Settings"
         '

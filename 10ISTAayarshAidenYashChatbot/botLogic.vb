@@ -247,6 +247,8 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
             Response = "Do you want to play a game?"
         ElseIf Input.Contains("fact") Then
             Response = "You want to hear a fun fact?"
+        ElseIf Input.Contains("name") And Input.Contains("your") Then
+            Response = "My name is Beribus! I'm a chatbot built by Aiden, Aayarsh and Yash to teach you about the human body systems!"
         End If
 
         For Each joke As String In jokes1

@@ -23,7 +23,7 @@ Public Class MessageForm
         recogniser.LoadGrammar(New DictationGrammar("grammar:dictation"))
         recogniser.BabbleTimeout = TimeSpan.FromSeconds(1)
         recogniser.EndSilenceTimeout = TimeSpan.FromSeconds(1)
-        Spacer.Size = New Drawing.Size(MessagePanel.Size.Width - MessagePanel.Margin.Size.Width, 0)
+        Spacer.Size = New Drawing.Size(MessagePanel.Size.Width - MessagePanel.Padding.Size.Width * 2, 0)
         Send_Chatbot_Message("Hey! How are you?")
     End Sub
 
@@ -33,7 +33,7 @@ Public Class MessageForm
                 child.MaximumSize = New Size(MessagePanel.Size.Width / 3 * 2, 0)
             End If
         Next
-        Spacer.Size = New Size(MessagePanel.Size.Width - MessagePanel.Margin.Size.Width, 0)
+        Spacer.Size = New Size(MessagePanel.Size.Width - MessagePanel.Padding.Size.Width * 2, 0)
     End Sub
 
     Private Sub recognized_completed() Handles recogniser.RecognizeCompleted
