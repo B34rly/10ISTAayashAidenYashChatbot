@@ -146,7 +146,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                     Exit Function
                 End If
             Next
-        ElseIf MessageForm.recentChatBotMessage.Contains("hear about firs") Then
+        ElseIf MessageForm.recentChatBotMessage.Contains("hear about first") Then
             For Each word As String In systemWords
                 If Input.Contains(word) Then
                     If word = "circulatory" Then
