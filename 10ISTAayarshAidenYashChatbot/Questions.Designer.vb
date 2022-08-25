@@ -26,6 +26,7 @@ Partial Class Questions
         Me.QuestionPanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.dom = New System.Windows.Forms.Label()
         Me.Spacer = New System.Windows.Forms.Label()
+        Me.CurrentQuestionLbl = New System.Windows.Forms.Label()
         Me.QuestionPanel.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -34,11 +35,11 @@ Partial Class Questions
         Me.QuestionsLabel.AutoSize = True
         Me.QuestionsLabel.Dock = System.Windows.Forms.DockStyle.Top
         Me.QuestionsLabel.Font = New System.Drawing.Font("Segoe UI", 16.2!, System.Drawing.FontStyle.Bold)
-        Me.QuestionsLabel.Location = New System.Drawing.Point(15, 9)
-        Me.QuestionsLabel.Margin = New System.Windows.Forms.Padding(3, 0, 3, 15)
+        Me.QuestionsLabel.Location = New System.Drawing.Point(13, 7)
+        Me.QuestionsLabel.Margin = New System.Windows.Forms.Padding(3, 0, 3, 12)
         Me.QuestionsLabel.Name = "QuestionsLabel"
-        Me.QuestionsLabel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 6)
-        Me.QuestionsLabel.Size = New System.Drawing.Size(147, 44)
+        Me.QuestionsLabel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 5)
+        Me.QuestionsLabel.Size = New System.Drawing.Size(147, 43)
         Me.QuestionsLabel.TabIndex = 1
         Me.QuestionsLabel.Text = "Questions"
         '
@@ -50,42 +51,53 @@ Partial Class Questions
         Me.QuestionPanel.Controls.Add(Me.Spacer)
         Me.QuestionPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.QuestionPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.QuestionPanel.Location = New System.Drawing.Point(15, 53)
+        Me.QuestionPanel.Location = New System.Drawing.Point(13, 73)
         Me.QuestionPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.QuestionPanel.Name = "QuestionPanel"
-        Me.QuestionPanel.Padding = New System.Windows.Forms.Padding(15, 15, 15, 40)
-        Me.QuestionPanel.Size = New System.Drawing.Size(584, 316)
-        Me.QuestionPanel.TabIndex = 2
+        Me.QuestionPanel.Padding = New System.Windows.Forms.Padding(13, 12, 13, 32)
+        Me.QuestionPanel.Size = New System.Drawing.Size(520, 222)
+        Me.QuestionPanel.TabIndex = 3
         Me.QuestionPanel.WrapContents = False
         '
         'dom
         '
         Me.dom.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dom.Location = New System.Drawing.Point(15, 15)
+        Me.dom.Location = New System.Drawing.Point(13, 12)
         Me.dom.Margin = New System.Windows.Forms.Padding(0)
         Me.dom.Name = "dom"
-        Me.dom.Size = New System.Drawing.Size(100, 1)
+        Me.dom.Size = New System.Drawing.Size(89, 1)
         Me.dom.TabIndex = 4
         '
         'Spacer
         '
-        Me.Spacer.Location = New System.Drawing.Point(15, 16)
-        Me.Spacer.Margin = New System.Windows.Forms.Padding(0, 0, 0, 0)
+        Me.Spacer.Location = New System.Drawing.Point(13, 13)
+        Me.Spacer.Margin = New System.Windows.Forms.Padding(0)
         Me.Spacer.Name = "Spacer"
-        Me.Spacer.Size = New System.Drawing.Size(100, 23)
+        Me.Spacer.Size = New System.Drawing.Size(89, 18)
         Me.Spacer.TabIndex = 5
         Me.Spacer.Text = "Label1"
         '
+        'CurrentQuestionLbl
+        '
+        Me.CurrentQuestionLbl.AutoSize = True
+        Me.CurrentQuestionLbl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CurrentQuestionLbl.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CurrentQuestionLbl.Location = New System.Drawing.Point(13, 50)
+        Me.CurrentQuestionLbl.Name = "CurrentQuestionLbl"
+        Me.CurrentQuestionLbl.Size = New System.Drawing.Size(348, 23)
+        Me.CurrentQuestionLbl.TabIndex = 1
+        Me.CurrentQuestionLbl.Text = "Chatbot is currently awaiting a response to:"
+        '
         'Questions
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(614, 384)
+        Me.ClientSize = New System.Drawing.Size(546, 307)
         Me.Controls.Add(Me.QuestionPanel)
+        Me.Controls.Add(Me.CurrentQuestionLbl)
         Me.Controls.Add(Me.QuestionsLabel)
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Questions"
-        Me.Padding = New System.Windows.Forms.Padding(15, 9, 15, 15)
+        Me.Padding = New System.Windows.Forms.Padding(13, 7, 13, 12)
         Me.Text = "Questions"
         Me.QuestionPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -97,4 +109,5 @@ Partial Class Questions
     Friend WithEvents QuestionPanel As FlowLayoutPanel
     Friend WithEvents dom As Label
     Friend WithEvents Spacer As Label
+    Friend WithEvents CurrentQuestionLbl As Label
 End Class

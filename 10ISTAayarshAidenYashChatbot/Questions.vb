@@ -1,5 +1,34 @@
 ﻿Public Class Questions
-    Dim QuestionsList As New List(Of String)({"well", "good", "great", "wonderful", "alright", "ok", "okay", "alright", "happy", "glad", "excellent", "exceptional", "marvelous", "positive", "superb", "wonderful"})
+    Dim QuestionsList As New List(Of String)({
+"Let's play a game!",
+"Tell me a joke.",
+"Tell me a fun fact.",
+"Whats your name?",
+"What Is the nervous system?",
+"Where Is the nervous system located/what makes up the nervous system?",
+"What does the nervous system Do?",
+"How does the nervous system work?",
+"How does the nervous system work With other systems?",
+"What Is the respiratory system?",
+"What makes up the respiratory system? ",
+"How does the respiratory system work? ",
+"What does the respiratory system Do? ",
+"How does the respiratory system work With other systems?",
+"What Is the circulatory system?",
+"What makes up the circulatory system?",
+"How does the circulatory system work?",
+"What does the circulatory system Do?",
+"How does the circulatory system work With other systems?",
+"What Is the digestive system?",
+"What makes up the digestive system?",
+"How does the digestive system work?",
+"What does the digestive system Do?",
+"How does the digestive system work With other systems?",
+"What Is the skeletal system?",
+"What Is the skeletal system made up of?",
+"How does the skeletal system work?",
+"What does the skeletal system Do?",
+"How does the skeletal system work With other systems?", ""})
     Private Sub Questions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Spacer.Size = New Size(QuestionPanel.Size.Width - QuestionPanel.Padding.Size.Width * 2, 0)
         For Each Question As String In QuestionsList
