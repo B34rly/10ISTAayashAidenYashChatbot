@@ -4,8 +4,8 @@
     Dim goodWords As New List(Of String)({"well", "good", "great", "wonderful", "alright", "ok", "okay", "alright", "happy", "glad", "excellent", "exceptional", "marvelous", "positive", "superb", "wonderful"})
     Dim badWords As New List(Of String)({"bad", "terrible", "unwell", "sad", "unhappy", "annoyed", "disappointed", "awful", "depressed", "distressed"})
     Dim isWords As New List(Of String)({"is", "it's", "'s"})
-    Dim affirmativeWords As New List(Of String)({"yes", "please", "of course", "affirmative", "why not", "okay", "sure", "yep", "all right", "gladly", "ok"})
-    Dim refusalWords As New List(Of String)({"no", "not", "never"})
+    Dim affirmativeWords As New List(Of String)({"yes", "please", "of course", "affirmative", "why not", "okay", "sure", "yep", "all right", "gladly", "ok", "yeah"})
+    Dim refusalWords As New List(Of String)({"no", "not", "never", "negative", "nah"})
     Dim systemWords As New List(Of String)({"circulatory", "respiratory", "digestive", "skeletal", "nervous"})
 
     Dim definitionWords As New List(Of String)({"what is", "definition", "define"})
@@ -207,7 +207,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                     Exit Function
                 End If
             Next
-        ElseIf MessageForm.recentChatBotMessage.Contains("hear about firs") Then
+        ElseIf MessageForm.recentChatBotMessage.Contains("hear about first") Then
             For Each word As String In systemWords
                 If Input.Contains(word) Then
                     If word = "circulatory" Then
@@ -248,7 +248,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
         End If
 
         If Input.Contains("joke") Then
-            Response = "Do you want to hear a joke? No guarentees it's good though!"
+            Response = "Do you want to hear a joke? No guarantees it's good though!"
         ElseIf Input.Contains("game") Then
             Response = "Do you want to play a game?"
         ElseIf Input.Contains("fact") Then
