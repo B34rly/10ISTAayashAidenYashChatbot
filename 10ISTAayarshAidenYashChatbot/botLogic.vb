@@ -315,7 +315,8 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                         If Not respiratoryTransitions.Count = 0 Then
                             Response = Response & vbNewLine & respiratoryTransitions.ElementAt(generator.Next(0, respiratoryTransitions.Count)).Value()
                         Else
-                            Response = Response & vbNewLine & "That's all I know about the respiratory system!"
+                            Dim newTransition = transitions.ElementAt(generator.Next(0, transitions.Count)).Value()
+                            Response = Response & vbNewLine & "Now's the time to take a deep breath, as we're finished with the respiratory system!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
                         End If
                         Return Response
                         Exit Function
@@ -338,7 +339,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                             Response = Response & vbNewLine & skeletalTransitions.ElementAt(generator.Next(0, skeletalTransitions.Count)).Value()
                         Else
                             Dim newTransition = transitions.ElementAt(generator.Next(0, transitions.Count)).Value()
-                            Response = Response & vbNewLine & "That's all I know about the skeletal system!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
+                            Response = Response & vbNewLine & "That's all the information I've got on the skeletal system!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
                         End If
                         Return Response
                         Exit Function
@@ -360,7 +361,8 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                         If Not nervousTransitions.Count = 0 Then
                             Response = Response & vbNewLine & nervousTransitions.ElementAt(generator.Next(0, nervousTransitions.Count)).Value()
                         Else
-                            Response = Response & vbNewLine & "That's all I know about the nervous system!"
+                            Dim newTransition = transitions.ElementAt(generator.Next(0, transitions.Count)).Value()
+                            Response = Response & vbNewLine & "Oh god, I'm starting to get nervous! I have nothing more to say about the nervous system!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
                         End If
                         Return Response
                         Exit Function
@@ -372,7 +374,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
             If MessageForm.recentChatBotMessage.Contains(inuendo.Value) Then
                 For Each word As String In refusalWords
                     If Input.Contains(word) Then
-                        Response = "well, let's continue to learn about the human body systems then!"
+                        Response = "Well, let's continue to learn about the human body systems then!"
                     End If
                 Next
                 For Each word As String In affirmativeWords
@@ -382,7 +384,8 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                         If Not digestiveTransitions.Count = 0 Then
                             Response = Response & vbNewLine & digestiveTransitions.ElementAt(generator.Next(0, digestiveTransitions.Count)).Value()
                         Else
-                            Response = Response & vbNewLine & "That's all i know about the digestive system!"
+                            Dim newTransition = transitions.ElementAt(generator.Next(0, transitions.Count)).Value()
+                            Response = Response & vbNewLine & "You're gonna need time to digest all that info on the digestive system, it's all I had!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
                         End If
                         Return Response
                         Exit Function
@@ -404,7 +407,8 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                         If Not circulatoryTransitions.Count = 0 Then
                             Response = Response & vbNewLine & circulatoryTransitions.ElementAt(generator.Next(0, circulatoryTransitions.Count)).Value()
                         Else
-                            Response = Response & vbNewLine & "That's all i know about the circulatory system!"
+                            Dim newTransition = transitions.ElementAt(generator.Next(0, transitions.Count)).Value()
+                            Response = Response & vbNewLine & "Heart's pumping, veins popping, arms heavy, out of information already!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
                         End If
                         Return Response
                         Exit Function
