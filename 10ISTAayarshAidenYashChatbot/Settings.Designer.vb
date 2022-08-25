@@ -35,13 +35,13 @@ Partial Class Settings
         Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.0!))
         Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.SettingsTable.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SettingsTable.Location = New System.Drawing.Point(15, 53)
-        Me.SettingsTable.Margin = New System.Windows.Forms.Padding(3, 15, 3, 3)
+        Me.SettingsTable.Location = New System.Drawing.Point(13, 50)
+        Me.SettingsTable.Margin = New System.Windows.Forms.Padding(3, 12, 3, 2)
         Me.SettingsTable.Name = "SettingsTable"
-        Me.SettingsTable.Padding = New System.Windows.Forms.Padding(12)
+        Me.SettingsTable.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
         Me.SettingsTable.RowCount = 1
         Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.SettingsTable.Size = New System.Drawing.Size(645, 24)
+        Me.SettingsTable.Size = New System.Drawing.Size(574, 20)
         Me.SettingsTable.TabIndex = 3
         '
         'SettingsLabel
@@ -49,26 +49,27 @@ Partial Class Settings
         Me.SettingsLabel.AutoSize = True
         Me.SettingsLabel.Dock = System.Windows.Forms.DockStyle.Top
         Me.SettingsLabel.Font = New System.Drawing.Font("Segoe UI", 16.2!, System.Drawing.FontStyle.Bold)
-        Me.SettingsLabel.Location = New System.Drawing.Point(15, 9)
-        Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(3, 0, 3, 15)
+        Me.SettingsLabel.Location = New System.Drawing.Point(13, 7)
+        Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(3, 0, 3, 12)
         Me.SettingsLabel.Name = "SettingsLabel"
-        Me.SettingsLabel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 6)
-        Me.SettingsLabel.Size = New System.Drawing.Size(124, 44)
+        Me.SettingsLabel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 5)
+        Me.SettingsLabel.Size = New System.Drawing.Size(124, 43)
         Me.SettingsLabel.TabIndex = 0
         Me.SettingsLabel.Text = "Settings"
         '
         'Settings
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(675, 259)
+        Me.ClientSize = New System.Drawing.Size(600, 207)
         Me.Controls.Add(Me.SettingsTable)
         Me.Controls.Add(Me.SettingsLabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Settings"
-        Me.Padding = New System.Windows.Forms.Padding(15, 9, 15, 15)
+        Me.Padding = New System.Windows.Forms.Padding(13, 7, 13, 12)
         Me.Text = "Settings"
         Me.ResumeLayout(False)
         Me.PerformLayout()
