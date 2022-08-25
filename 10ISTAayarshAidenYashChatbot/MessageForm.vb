@@ -181,16 +181,9 @@ Public Class MessageForm
         End If
     End Sub
     Private Sub Send_Chatbot_Message(Message As String)
-        Dim errorFound = False
-        For Each errorMsg As String In logic.errorMessages
-            If Message.Contains(errorMsg) Then
-                errorFound = True
-            End If
-        Next
-        If Not errorFound Then
+        If Not Message.Contains("Sorry, I didn't get that") Then
             recentChatBotMessage = Message
         End If
-        Questions.CurrentQuestionLbl.Text = "Beribus is currently awaiting a reply to: " & recentChatBotMessage
         Dim botMsgLbl As Label
 
         For Each individualMessage As String In Message.Split(vbNewLine)
