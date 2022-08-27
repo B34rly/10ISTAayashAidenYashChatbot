@@ -4,6 +4,7 @@
     Dim goodWords As New List(Of String)({"well", "good", "great", "wonderful", "alright", "ok", "okay", "alright", "happy", "glad", "excellent", "exceptional", "marvelous", "positive", "superb", "wonderful"})
     Dim badWords As New List(Of String)({"bad", "terrible", "unwell", "sad", "unhappy", "annoyed", "disappointed", "awful", "depressed", "distressed"})
     Dim isWords As New List(Of String)({"is", "it's", "'s"})
+    Dim byeWords As New List(Of String)({"bye", "see you", "later", "farewell", "adios", "ciao"})
     Dim affirmativeWords As New List(Of String)({"yes", "please", "of course", "affirmative", "why not", "okay", "sure", "yep", "all right", "gladly", "ok", "yeah"})
     Dim refusalWords As New List(Of String)({"no", "not", "never", "negative", "nah"})
     Dim systemWords As New List(Of String)({"circulatory", "respiratory", "digestive", "skeletal", "nervous"})
@@ -37,7 +38,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
     "Believe it or not, you heart doesn't need you!
  In a particularly memorable scene in the 1984 film, 'Indiana Jones and the Temple of Doom', a man rips out another man's still-beating heart. While easily removing a person's heart with your bare hand is the stuff of science fiction, the heart actually can still beat after being removed from the body.
 "})
-    Public errorMessages As New List(Of String)({"Sorry, I didn't get that.", "Sorry, I don't have an answer in my database.", "I have no idea how to respond to that. I'll get my programmers to tecah me soon!", "Pardon?", "Sorry?", "This piece of artificial intelligence is not artificially intelligent enough to be able to respond to that.", "Sorry, my programmers didn't teach me how to answer that"})
+    Public errorMessages As New List(Of String)({"Sorry, I didn't get that.", "Sorry, I don't have an answer in my database.", "I have no idea how to respond to that. I'll get my programmers to teach me soon!", "Pardon?", "Sorry?", "This piece of artificial intelligence is not artificially intelligent enough to be able to respond to that.", "Sorry, my programmers didn't teach me how to answer that"})
 
     Dim respiratoryInfo As New Dictionary(Of String, String) From {
         {"definition", "The respiratory system is the network of organs and tissues that help you breathe. It includes your airways, lungs and blood vessels. The muscles that power your lungs are also part of the respiratory system. These parts work together to move oxygen throughout the body and clean out waste gases like carbon dioxide."},
@@ -76,69 +77,83 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
     Dim jokeTransitions As New List(Of String) From {"Processor overheating. Need joke to cool down. Confirm?", "Sometimes, I feel like I'm taken as a joke. On that note, do you want to hear a joke?", "Stop learning! It's time for a joke!"}
     Dim funFactTransitions As New List(Of String) From {"These facts aren't fun, you want a fun fact?", "Do you want to hear a fun fact?"}
     Dim gameTransitions As New List(Of String) From {"Man all this info is hurting my head, do you want to play a game?", "This is getting boring, you wanna play a game?", "Enough info! Gaming time?", "Games?", "Processor overheating. Need to cool down. Games?"}
-    Dim respiratoryTransitions As New Dictionary(Of String, String) From {{"definition", "Wanna learn about the respiratory system?"}, {"composition", "The respiratory system is composed of only a few parts, want to hear what they are?"}, {"purpose", "Are you curious about the purpose of the respiratory system?"}, {"how", "Do you want to know how the respiratory system works?"}, {"integration", "The respiratory system is very important and foundational for the other systems. Wanna learn how it all works together?"}}
-    Dim skeletalTransitions As New Dictionary(Of String, String) From {{"definition", "Do you want to learn about what the skeletal system is?"}, {"composition", "The adult human body is made up of 206 bones. Want to learn what else makes up the skeletal system?"}, {"purpose", "The skeletal system has the main role of giving your body structure. Without it, you’d just be a bag of meat and blood. Interested in learning more?"}, {"how", "Would you like to learn how the skeletal system works, and what other functions it has?"}, {"integration", "Believe it or not, the skeletal system has a key connection with the circulatory system. Wanna know what it is?"}}
-    Dim circulatoryTransitions As New Dictionary(Of String, String) From {{"definition", "Do you want to know what the circulatory system is?"}, {“composition”, “The circulatory system is made up of thousands of blood vessels. In fact, there are so many, if they were fully stretched out, they could wrap around the Earth 2.5 times! Want to learn more about the make-up of the circulatory system?”}, {“purpose”, “Are you curious about what the circulatory system is made to do?”}, {“how”, “Pumping blood at high speeds for your whole life is tiring work for your heart, and considering it nevers puts in a half-hearted effort, it really deserves some recognition. Would you like to know about how it does it all?”}, {“integration”, “Are you interested in learning more about how the circulatory system works with other body systems?”}}
-    Dim nervousTransitions As New Dictionary(Of String, String) From {{"definition", "The nervous system does not in fact make you nervous. Would you like to learn about what it actually is?"}, {"composition", "Are you interested in learning about what the nervous system is actually made up of"}, {"purpose", "Feeling a bit nervous? Maybe distract yourself by reading about what the nervous system actually does!"}, {"how", "Did you know the nervous system uses electrical signals to communicate with the rest of the body, much like a computer! Want to learn more?"}, {"integration", "The nervous system helps to communicate all of your body together, and it’s helping you communicate with me right now! Let’s continue communicating, and learn about how the nervous system works with the rest of the human body"}}
-    Dim digestiveTransitions As New Dictionary(Of String, String) From {{"definition", "Would you like to learn about what the digestive system is?"}, {"composition", "The digestive system is made up of intestines, which are about 7m long when stretched. Want to learn more about what the digestive system is made up of?"}, {"purpose", "The digestive system has an important role in the human body. Are you interested in learning more?"}, {"how", "Want to know how all that food you eat ends up in a toilet bowl at some point? Then you should learn about how the digestive system works!"}, {"integration", "Are you curious about which parts of the body the digestive system works with?"}}
 
-    Dim transitions As New Dictionary(Of String, Object) From {{"jokes", jokeTransitions}, {"funfact", funFactTransitions}, {"game", gameTransitions}}
+    Dim respiratoryTransitionsOG As New Dictionary(Of String, String) From {{"definition", "Wanna learn about the respiratory system?"}, {"composition", "The respiratory system is composed of only a few parts, want to hear what they are?"}, {"purpose", "Are you curious about the purpose of the respiratory system?"}, {"how", "Do you want to know how the respiratory system works?"}, {"integration", "The respiratory system is very important and foundational for the other systems. Wanna learn how it all works together?"}}
+    Dim skeletalTransitionsOG As New Dictionary(Of String, String) From {{"definition", "Do you want to learn about what the skeletal system is?"}, {"composition", "The adult human body is made up of 206 bones. Want to learn what else makes up the skeletal system?"}, {"purpose", "The skeletal system has the main role of giving your body structure. Without it, you’d just be a bag of meat and blood. Interested in learning more?"}, {"how", "Would you like to learn how the skeletal system works, and what other functions it has?"}, {"integration", "Believe it or not, the skeletal system has a key connection with the circulatory system. Wanna know what it is?"}}
+    Dim circulatoryTransitionsOG As New Dictionary(Of String, String) From {{"definition", "Do you want to know what the circulatory system is?"}, {“composition”, “The circulatory system is made up of thousands of blood vessels. In fact, there are so many, if they were fully stretched out, they could wrap around the Earth 2.5 times! Want to learn more about the make-up of the circulatory system?”}, {“purpose”, “Are you curious about what the circulatory system is made to do?”}, {“how”, “Pumping blood at high speeds for your whole life is tiring work for your heart, and considering it nevers puts in a half-hearted effort, it really deserves some recognition. Would you like to know about how it does it all?”}, {“integration”, “Are you interested in learning more about how the circulatory system works with other body systems?”}}
+    Dim nervousTransitionsOG As New Dictionary(Of String, String) From {{"definition", "The nervous system does not in fact make you nervous. Would you like to learn about what it actually is?"}, {"composition", "Are you interested in learning about what the nervous system is actually made up of"}, {"purpose", "Feeling a bit nervous? Maybe distract yourself by reading about what the nervous system actually does!"}, {"how", "Did you know the nervous system uses electrical signals to communicate with the rest of the body, much like a computer! Want to learn more?"}, {"integration", "The nervous system helps to communicate all of your body together, and it’s helping you communicate with me right now! Let’s continue communicating, and learn about how the nervous system works with the rest of the human body"}}
+    Dim digestiveTransitionsOG As New Dictionary(Of String, String) From {{"definition", "Would you like to learn about what the digestive system is?"}, {"composition", "The digestive system is made up of intestines, which are about 7m long when stretched. Want to learn more about what the digestive system is made up of?"}, {"purpose", "The digestive system has an important role in the human body. Are you interested in learning more?"}, {"how", "Want to know how all that food you eat ends up in a toilet bowl at some point? Then you should learn about how the digestive system works!"}, {"integration", "Are you curious about which parts of the body the digestive system works with?"}}
+
+    Dim learnTransitions As New List(Of String) From {"Do you want to learn more now?", "My processor has cooled down, want to learn now?", "That was fun, is it time to learn now?", "I've got so much more to tell you about body systems! Wanna hear them?"}
+    Dim infoTransitions As New Dictionary(Of String, Dictionary(Of String, String)) From {{"respiratory", respiratoryTransitionsOG}, {"skeletal", skeletalTransitionsOG}, {"digestive", digestiveTransitionsOG}, {"nervous", nervousTransitionsOG}, {"circulatory", circulatoryTransitionsOG}}
+    Dim funTransitions As New Dictionary(Of String, List(Of String)) From {{"jokes", jokeTransitions}, {"funfact", funFactTransitions}, {"game", gameTransitions}}
+
+    Dim respiratoryTransitions As Dictionary(Of String, String) = New Dictionary(Of String, String)(respiratoryTransitionsOG)
+    Dim skeletalTransitions As Dictionary(Of String, String) = New Dictionary(Of String, String)(skeletalTransitionsOG)
+    Dim nervousTransitions As Dictionary(Of String, String) = New Dictionary(Of String, String)(nervousTransitionsOG)
+    Dim digestiveTransitions As Dictionary(Of String, String) = New Dictionary(Of String, String)(digestiveTransitionsOG)
+    Dim circulatoryTransitions As Dictionary(Of String, String) = New Dictionary(Of String, String)(circulatoryTransitionsOG)
 
     Public Function Chatbot_Respond(Input As String) As String 'put all the chatting logic in here :D
         Dim Response = errorMessages(generator.Next(0, errorMessages.Count))
-
+        For Each word As String In byeWords
+            If Input.Contains(word) Then
+                Response = "Bye! I'll like to talk to you soon." & vbNewLine & "You can close this app when you feel like it. Or never."
+            End If
+        Next
         For Each system As String In systemWords
             If Input.Contains(system) Then
                 Response = "What do you want to learn about the " & system & " system?"
                 For Each word As String In definitionWords
                     If Input.Contains(word) Then
-                        Response = infoDictionary(system)("definition")
+
+                        Response = infoDictionary(system)("definition") & vbNewLine & infoTransitions(system).ElementAt(generator.Next(0, infoTransitions(system).Count)).Value()
                     End If
                 Next
                 For Each word As String In compositionWords
                     If Input.Contains(word) Then
-                        Response = infoDictionary(system)("composition")
+                        Response = infoDictionary(system)("composition") & vbNewLine & infoTransitions(system).ElementAt(generator.Next(0, infoTransitions(system).Count)).Value()
                     End If
                 Next
                 For Each word As String In howWords
                     If Input.Contains(word) Then
-                        Response = infoDictionary(system)("how")
+                        Response = infoDictionary(system)("how") & vbNewLine & infoTransitions(system).ElementAt(generator.Next(0, infoTransitions(system).Count)).Value()
                     End If
                 Next
                 For Each word As String In purposeWords
                     If Input.Contains(word) Then
-                        Response = infoDictionary(system)("purpose")
+                        Response = infoDictionary(system)("purpose") & vbNewLine & infoTransitions(system).ElementAt(generator.Next(0, infoTransitions(system).Count)).Value()
                     End If
                 Next
                 For Each word As String In integrationWords
                     If Input.Contains(word) Then
-                        Response = infoDictionary(system)("integration")
+                        Response = infoDictionary(system)("integration") & vbNewLine & infoTransitions(system).ElementAt(generator.Next(0, infoTransitions(system).Count)).Value()
                     End If
                 Next
             ElseIf MessageForm.recentChatBotMessage.Contains(system) Then
                 For Each word As String In definitionWords
                     If Input.Contains(word) Then
-                        Response = infoDictionary(system)("definition")
+                        Response = infoDictionary(system)("definition") & vbNewLine & infoTransitions(system).ElementAt(generator.Next(0, infoTransitions(system).Count)).Value()
                     End If
                 Next
                 For Each word As String In compositionWords
                     If Input.Contains(word) Then
-                        Response = infoDictionary(system)("composition")
+                        Response = infoDictionary(system)("composition") & vbNewLine & infoTransitions(system).ElementAt(generator.Next(0, infoTransitions(system).Count)).Value()
                     End If
                 Next
                 For Each word As String In howWords
                     If Input.Contains(word) Then
-                        Response = infoDictionary(system)("how")
+                        Response = infoDictionary(system)("how") & vbNewLine & infoTransitions(system).ElementAt(generator.Next(0, infoTransitions(system).Count)).Value()
                     End If
                 Next
                 For Each word As String In purposeWords
                     If Input.Contains(word) Then
-                        Response = infoDictionary(system)("purpose")
+                        Response = infoDictionary(system)("purpose") & vbNewLine & infoTransitions(system).ElementAt(generator.Next(0, infoTransitions(system).Count)).Value()
                     End If
                 Next
                 For Each word As String In integrationWords
                     If Input.Contains(word) Then
-                        Response = infoDictionary(system)("integration")
+                        Response = infoDictionary(system)("integration") & vbNewLine & infoTransitions(system).ElementAt(generator.Next(0, infoTransitions(system).Count)).Value()
                     End If
                 Next
             End If
@@ -147,17 +162,17 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
         If MessageForm.recentChatBotMessage.Contains("How are you") Then
             Dim goodResponse
             For Each word As String In goodWords
-                If Input.Contains(word) Then
-                    goodResponse = True
-                ElseIf Input.Contains(word) And Input.Contains("not") Then
+                If Input.Contains(word) And Input.Contains("not") Then
                     goodResponse = False
+                ElseIf Input.Contains(word) Then
+                    goodResponse = True
                 End If
             Next
             For Each word As String In badWords
-                If Input.Contains(word) Then
-                    goodResponse = False
-                ElseIf Input.Contains(word) And Input.Contains("not") Then
+                If Input.Contains(word) And Input.Contains("not") Then
                     goodResponse = True
+                ElseIf Input.Contains(word) Then
+                    goodResponse = False
                 End If
             Next
             If goodResponse IsNot Nothing Then
@@ -197,7 +212,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
         ElseIf MessageForm.recentChatBotMessage.Contains("play a game") Or MessageForm.recentChatBotMessage.Contains("play again") Then
             For Each word As String In refusalWords
                 If Input.Contains(word) Then
-                    Response = "Well, let's continue to learn about the human body systems then!"
+                    Response = learnTransitions.ElementAt(generator.Next(0, learnTransitions.Count()))
                 End If
             Next
             For Each word As String In affirmativeWords
@@ -289,7 +304,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
             If MessageForm.recentChatBotMessage.Contains(inuendo) Then
                 For Each word As String In refusalWords
                     If Input.Contains(word) Then
-                        Response = "Well, let's continue to learn about the human body systems then!"
+                        Response = "What do you want to do then?"
                     End If
                 Next
                 For Each word As String In affirmativeWords
@@ -305,7 +320,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
             If MessageForm.recentChatBotMessage.Contains(inuendo.Value) Then
                 For Each word As String In refusalWords
                     If Input.Contains(word) Then
-                        Response = "Well, let's continue to learn about the human body systems then!"
+                        Response = "What do you want to do then?"
                     End If
                 Next
                 For Each word As String In affirmativeWords
@@ -315,7 +330,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                         If Not respiratoryTransitions.Count = 0 Then
                             Response = Response & vbNewLine & respiratoryTransitions.ElementAt(generator.Next(0, respiratoryTransitions.Count)).Value()
                         Else
-                            Dim newTransition = transitions.ElementAt(generator.Next(0, transitions.Count)).Value()
+                            Dim newTransition = funTransitions.ElementAt(generator.Next(0, funTransitions.Count)).Value()
                             Response = Response & vbNewLine & "Now's the time to take a deep breath, as we're finished with the respiratory system!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
                         End If
                         Return Response
@@ -328,7 +343,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
             If MessageForm.recentChatBotMessage.Contains(inuendo.Value) Then
                 For Each word As String In refusalWords
                     If Input.Contains(word) Then
-                        Response = "Well, let's continue to learn about the human body systems then!"
+                        Response = "What do you want to do then?"
                     End If
                 Next
                 For Each word As String In affirmativeWords
@@ -338,7 +353,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                         If Not skeletalTransitions.Count = 0 Then
                             Response = Response & vbNewLine & skeletalTransitions.ElementAt(generator.Next(0, skeletalTransitions.Count)).Value()
                         Else
-                            Dim newTransition = transitions.ElementAt(generator.Next(0, transitions.Count)).Value()
+                            Dim newTransition = funTransitions.ElementAt(generator.Next(0, funTransitions.Count)).Value()
                             Response = Response & vbNewLine & "That's all the information I've got on the skeletal system!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
                         End If
                         Return Response
@@ -351,7 +366,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
             If MessageForm.recentChatBotMessage.Contains(inuendo.Value) Then
                 For Each word As String In refusalWords
                     If Input.Contains(word) Then
-                        Response = "Well, let's continue to learn about the human body systems then!"
+                        Response = "What do you want to do then?"
                     End If
                 Next
                 For Each word As String In affirmativeWords
@@ -361,7 +376,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                         If Not nervousTransitions.Count = 0 Then
                             Response = Response & vbNewLine & nervousTransitions.ElementAt(generator.Next(0, nervousTransitions.Count)).Value()
                         Else
-                            Dim newTransition = transitions.ElementAt(generator.Next(0, transitions.Count)).Value()
+                            Dim newTransition = funTransitions.ElementAt(generator.Next(0, funTransitions.Count)).Value()
                             Response = Response & vbNewLine & "Oh god, I'm starting to get nervous! I have nothing more to say about the nervous system!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
                         End If
                         Return Response
@@ -374,7 +389,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
             If MessageForm.recentChatBotMessage.Contains(inuendo.Value) Then
                 For Each word As String In refusalWords
                     If Input.Contains(word) Then
-                        Response = "Well, let's continue to learn about the human body systems then!"
+                        Response = "What do you want to do then?"
                     End If
                 Next
                 For Each word As String In affirmativeWords
@@ -384,7 +399,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                         If Not digestiveTransitions.Count = 0 Then
                             Response = Response & vbNewLine & digestiveTransitions.ElementAt(generator.Next(0, digestiveTransitions.Count)).Value()
                         Else
-                            Dim newTransition = transitions.ElementAt(generator.Next(0, transitions.Count)).Value()
+                            Dim newTransition = funTransitions.ElementAt(generator.Next(0, funTransitions.Count)).Value()
                             Response = Response & vbNewLine & "You're gonna need time to digest all that info on the digestive system, it's all I had!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
                         End If
                         Return Response
@@ -397,7 +412,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
             If MessageForm.recentChatBotMessage.Contains(inuendo.Value) Then
                 For Each word As String In refusalWords
                     If Input.Contains(word) Then
-                        Response = "well, let's continue to learn about the human body systems then!"
+                        Response = "What do you want to do then?"
                     End If
                 Next
                 For Each word As String In affirmativeWords
@@ -407,8 +422,8 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                         If Not circulatoryTransitions.Count = 0 Then
                             Response = Response & vbNewLine & circulatoryTransitions.ElementAt(generator.Next(0, circulatoryTransitions.Count)).Value()
                         Else
-                            Dim newTransition = transitions.ElementAt(generator.Next(0, transitions.Count)).Value()
-                            Response = Response & vbNewLine & "Heart's pumping, veins popping, arms heavy, out of information already!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
+                            Dim newTransition = funTransitions.ElementAt(generator.Next(0, funTransitions.Count)).Value()
+                            Response = Response & vbNewLine & "Heart's pumping, veins popping, arms heavy, out of circulatory information already!" & vbNewLine & newTransition(generator.Next(0, newTransition.Count))
                         End If
                         Return Response
                         Exit Function
@@ -416,9 +431,35 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                 Next
             End If
         Next
+        For Each inuendo As String In learnTransitions
+            If MessageForm.recentChatBotMessage.Contains(inuendo) Then
+                For Each word As String In refusalWords
+                    If Input.Contains(word) Then
+                        Dim newTransition = funTransitions.ElementAt(generator.Next(0, funTransitions.Count)).Value()
+                        Response = newTransition.ElementAt(generator.Next(0, newTransition.Count))
+                    End If
+                Next
+                For Each word As String In affirmativeWords
+                    If Input.Contains(word) Then
+                        Dim newTransition = infoTransitions.ElementAt(generator.Next(0, infoTransitions.Count)).Value()
+                        Response = newTransition.ElementAt(generator.Next(0, newTransition.Count)).Value()
+                    End If
+                Next
+            End If
+        Next
         For Each joke As String In jokes1
             If MessageForm.recentChatBotMessage.Contains(joke) Then
                 Response = jokes2(jokes1.IndexOf(joke))
+            End If
+        Next
+        For Each joke As String In jokes2
+            If MessageForm.recentChatBotMessage.Contains(joke) Then
+                Response = learnTransitions.ElementAt(generator.Next(0, learnTransitions.Count()))
+            End If
+        Next
+        For Each funfact As String In funFacts
+            If MessageForm.recentChatBotMessage.Contains(funfact) Then
+                Response = learnTransitions.ElementAt(generator.Next(0, learnTransitions.Count()))
             End If
         Next
         Return Response

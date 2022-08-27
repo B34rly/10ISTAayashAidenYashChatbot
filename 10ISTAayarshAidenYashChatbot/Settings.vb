@@ -1,5 +1,5 @@
 ﻿Public Class Settings
-    Dim settings As New List(Of String)({"Bot_Text_to_Speech", "Music_Mute", "Send_Notifications", "Notification_Sound"})
+    Dim settings As New List(Of String)({"Bot_Text_to_Speech", "Music", "Send_Notifications", "Notification_Sound"})
 
     Dim checkboxes As New List(Of CheckBox)
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -28,7 +28,7 @@
     End Sub
     Private Sub CheckboxValueChanged(sender As CheckBox, e As EventArgs)
         My.Settings.Item(sender.Name) = sender.Checked
-        If sender.Name = "Music_Mute" Then
+        If sender.Name = "Music" Then
             If sender.Checked Then
                 My.Computer.Audio.Play(My.Resources.music, AudioPlayMode.BackgroundLoop)
             Else

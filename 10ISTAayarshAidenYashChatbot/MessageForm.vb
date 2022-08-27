@@ -13,7 +13,9 @@ Public Class MessageForm
     Dim gameBtnList As New List(Of Button)
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        My.Computer.Audio.Play(My.Resources.music, AudioPlayMode.BackgroundLoop)
+        If My.Settings.Item("Music") Then
+            My.Computer.Audio.Play(My.Resources.music, AudioPlayMode.BackgroundLoop)
+        End If
 
         recogniser = New SpeechRecognitionEngine(New System.Globalization.CultureInfo("en-US"))
         recogniser.SetInputToDefaultAudioDevice()

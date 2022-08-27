@@ -68,13 +68,13 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property Music_Mute() As Boolean
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Music() As Boolean
             Get
-                Return CType(Me("Music_Mute"),Boolean)
+                Return CType(Me("Music"),Boolean)
             End Get
             Set
-                Me("Music_Mute") = value
+                Me("Music") = value
             End Set
         End Property
         

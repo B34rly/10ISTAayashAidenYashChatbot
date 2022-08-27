@@ -5,8 +5,8 @@
     <Setting Name="Bot_Text_to_Speech" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Music_Mute" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="Music" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="Send_Notifications" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
