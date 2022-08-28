@@ -246,7 +246,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
             Next
             For Each word As String In refusalWords
                 If Input.Contains(word) Then
-                    Response = "Well, your loss. I've got tons more for when you change your mind!" & vbNewLine & "For now, give me a question about our 5 body systems!"
+                    Response = "Well, your loss. I've got tons more for when you change your mind!" & vbNewLine & learnTransitions.ElementAt(generator.Next(0, learnTransitions.Count()))
                 End If
             Next
         ElseIf MessageForm.recentChatBotMessage.Contains("joke") Then
@@ -257,7 +257,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
             Next
             For Each word As String In refusalWords
                 If Input.Contains(word) Then
-                    Response = "Oh, alright then." & "Hit me with a question about some more body systems!"
+                    Response = "Oh, alright then." & learnTransitions.ElementAt(generator.Next(0, learnTransitions.Count()))
                 End If
             Next
         End If
@@ -281,7 +281,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                 Next
                 For Each word As String In refusalWords
                     If Input.Contains(word) Then
-                        Response = "Oh, alright then." & "Hit me with a question about some more body systems!"
+                        Response = "Oh, alright then." & learnTransitions.ElementAt(generator.Next(0, learnTransitions.Count()))
                     End If
                 Next
             End If
@@ -295,7 +295,7 @@ Stomach growling is called borborygmus and happens all the time, but it is just 
                 Next
                 For Each word As String In refusalWords
                     If Input.Contains(word) Then
-                        Response = "Well, your loss. I've got tons more for when you change your mind!" & vbNewLine & "For now, give me a question about our 5 body systems!"
+                        Response = "Well, your loss. I've got tons more for when you change your mind!" & vbNewLine & learnTransitions.ElementAt(generator.Next(0, learnTransitions.Count()))
                     End If
                 Next
             End If
