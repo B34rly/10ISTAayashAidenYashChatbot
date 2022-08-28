@@ -39,7 +39,7 @@ Partial Class Questions
         Me.QuestionsLabel.Margin = New System.Windows.Forms.Padding(3, 0, 3, 12)
         Me.QuestionsLabel.Name = "QuestionsLabel"
         Me.QuestionsLabel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 5)
-        Me.QuestionsLabel.Size = New System.Drawing.Size(147, 43)
+        Me.QuestionsLabel.Size = New System.Drawing.Size(175, 50)
         Me.QuestionsLabel.TabIndex = 1
         Me.QuestionsLabel.Text = "Questions"
         '
@@ -51,11 +51,11 @@ Partial Class Questions
         Me.QuestionPanel.Controls.Add(Me.Spacer)
         Me.QuestionPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.QuestionPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.QuestionPanel.Location = New System.Drawing.Point(13, 73)
+        Me.QuestionPanel.Location = New System.Drawing.Point(13, 87)
         Me.QuestionPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.QuestionPanel.Name = "QuestionPanel"
         Me.QuestionPanel.Padding = New System.Windows.Forms.Padding(13, 12, 13, 32)
-        Me.QuestionPanel.Size = New System.Drawing.Size(520, 222)
+        Me.QuestionPanel.Size = New System.Drawing.Size(520, 208)
         Me.QuestionPanel.TabIndex = 3
         Me.QuestionPanel.WrapContents = False
         '
@@ -82,9 +82,9 @@ Partial Class Questions
         Me.CurrentQuestionLbl.AutoSize = True
         Me.CurrentQuestionLbl.Dock = System.Windows.Forms.DockStyle.Top
         Me.CurrentQuestionLbl.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CurrentQuestionLbl.Location = New System.Drawing.Point(13, 50)
+        Me.CurrentQuestionLbl.Location = New System.Drawing.Point(13, 57)
         Me.CurrentQuestionLbl.Name = "CurrentQuestionLbl"
-        Me.CurrentQuestionLbl.Size = New System.Drawing.Size(348, 23)
+        Me.CurrentQuestionLbl.Size = New System.Drawing.Size(426, 30)
         Me.CurrentQuestionLbl.TabIndex = 1
         Me.CurrentQuestionLbl.Text = "Chatbot is currently awaiting a response to:"
         '
